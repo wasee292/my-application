@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+// Databinding Plugin
+apply plugin: 'kotlin-kapt'
+// Crashlytics Plugin
+//apply plugin: 'io.fabric'
+
+android {
+  compileSdkVersion 29
+  buildToolsVersion "29.0.2"
+
+  defaultConfig {
+    applicationId "com.example.myapplication"
+    minSdkVersion 21
+    targetSdkVersion 29
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    vectorDrawables.useSupportLibrary = true
+//    multiDexEnabled true
+  }
+
+  buildTypes {
+    debug {
+//      ext.enableCrashlytics = true
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//      ext.enableCrashlytics = true
+    }
+  }
+
+//  Databinding
+  dataBinding {
+    enabled = true
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+  implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
+  implementation "androidx.core:core-ktx:$androidx_core_version"
+  implementation "com.google.android.material:material:$material_version"
+  implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+//  Databinding Compiler
+  kapt "com.android.databinding:compiler:$databinding_version"
+
+//  Livedata & ViewModel
+  implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+  implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+
+//  Koin
+  implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+//  Okhttp
+  implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+  implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+//  Gson
+  implementation "com.google.code.gson:gson:$gson_version"
+
+//  Gson Converter Factory
+  implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+//  Retrofit
+  implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+//  Rx
+  implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+  implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+  implementation "com.jakewharton.rxbinding2:rxbinding:$rxandroid_version"
+
+//  RxJava Call Adapter Factory
+  implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
+//  JWT Decode library
+//  implementation "com.auth0.android:jwtdecode:$jwtdecode_version"
+
+//  Coroutine Call Adapter Factory
+//  implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutine_call_adapter_version"
+
+//  Firebase Core
+//  implementation "com.google.firebase:firebase-core:$firebase_version"
+
+//  Firebase Analytics
+//  implementation "com.google.firebase:firebase-analytics:$firebase_version"
+
+//  Firebase Crashlytics
+//  implementation "com.crashlytics.sdk.android:crashlytics:$crashlytics_version"
+
+//  Multidex
+//  implementation "com.android.support:multidex:$multidex_version"
+
+//  Logger
+  implementation "com.jakewharton.timber:timber:$timber_version"
+}
+
+// Google Services
+//apply plugin: 'com.google.gms.google-services'

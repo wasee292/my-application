@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <import type="android.graphics.Color" />
+
+    <variable
+      name="repo"
+      type="com.example.myapplication.model.Repo" />
+  </data>
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="36dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_inter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="66dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="16dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_img_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="48dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_tv_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="64dp" />
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/h_inter"
+        app:layout_constraintEnd_toStartOf="@+id/v_img_end"
+        app:layout_constraintStart_toEndOf="@+id/v_start"
+        app:layout_constraintTop_toBottomOf="@+id/h_start"
+        app:srcCompat="@drawable/ic_star_yellow_24dp" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@{repo.author}"
+        android:textColor="#52575C"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/v_end"
+        app:layout_constraintStart_toEndOf="@+id/v_tv_start"
+        app:layout_constraintTop_toBottomOf="@+id/h_start"
+        tools:text="mbinary" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@{repo.name}"
+        android:textColor="#52575C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/h_inter"
+        app:layout_constraintEnd_toStartOf="@+id/v_end"
+        app:layout_constraintStart_toEndOf="@+id/v_tv_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_author"
+        tools:text="USTC-CS-Courses-Resource" />
+
+      <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_extra_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="@{repo.expand ? View.VISIBLE : View.GONE}"
+        app:layout_constraintBottom_toTopOf="@+id/h_end"
+        app:layout_constraintEnd_toStartOf="@+id/v_end"
+        app:layout_constraintStart_toEndOf="@+id/v_tv_start"
+        app:layout_constraintTop_toBottomOf="@+id/h_inter">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_description"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="8dp"
+          android:ellipsize="end"
+          android:maxLines="2"
+          android:text="@{repo.description}"
+          android:textColor="#52575C"
+          android:textSize="12sp"
+          tools:text="There is a fox ina forest which always envied the Lion. For a long time this happened." />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+          android:id="@+id/ll_attrs"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_language_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:width="8dp"
+            android:height="8dp"
+            android:background="@drawable/bg_round"
+            android:backgroundTint="@{repo.langColor}"
+            android:textSize="16sp" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:text="@{repo.language}"
+            android:textColor="#52575C"
+            android:textSize="12sp"
+            tools:text="C++" />
+
+          <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_star"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            app:srcCompat="@drawable/ic_star_yellow_24dp" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@{String.valueOf(repo.stars)}"
+            android:textColor="#52575C"
+            android:textSize="12sp"
+            tools:text="1234" />
+
+          <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_fork"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            app:srcCompat="@drawable/ic_star_yellow_24dp" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_fork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(repo.forks)}"
+            android:textColor="#52575C"
+            android:textSize="12sp"
+            tools:text="1234" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+
+</layout>
