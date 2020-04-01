@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.example.myapplication.BR
 import org.koin.android.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
 
@@ -16,6 +17,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> : AppCompat
   protected abstract fun toolbar(): Toolbar?
   protected abstract fun viewModelClass(): KClass<VM>
   protected abstract fun requireConnection(): Boolean
+
   @LayoutRes
   protected abstract fun layoutId(): Int
 
@@ -35,5 +37,6 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> : AppCompat
 
   private fun bindContentView(layoutId: Int) {
     binding = DataBindingUtil.setContentView(this, layoutId)
+    binding.setVariable(BR.viewModel, viewModel)
   }
 }

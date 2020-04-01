@@ -58,6 +58,7 @@ dependencies {
   implementation "androidx.core:core-ktx:$androidx_core_version"
   implementation "com.google.android.material:material:$material_version"
   implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+  implementation "com.squareup.picasso:picasso:$picasso_version"
 
 //  Databinding Compiler
   kapt "com.android.databinding:compiler:$databinding_version"

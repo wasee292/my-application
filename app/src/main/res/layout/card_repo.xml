@@ -74,6 +74,7 @@
 
       <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_avatar"
+        imageUrl="@{repo.avatar}"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="9dp"
@@ -82,7 +83,7 @@
         app:layout_constraintEnd_toStartOf="@+id/v_img_end"
         app:layout_constraintStart_toEndOf="@+id/v_start"
         app:layout_constraintTop_toBottomOf="@+id/h_start"
-        app:srcCompat="@drawable/ic_star_yellow_24dp" />
+        tools:srcCompat="@drawable/ic_star_yellow_24dp" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_author"
