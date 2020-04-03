@@ -27,6 +27,7 @@ class RepoListAdapter(private val clickListener: ItemClickListener<Repo>) :
       holder.bind(repoList[position])
       holder.binding.root.setOnClickListener {
         clickListener.onItemClicked(item)
+        notifyItemChanged(position)
       }
     }
   }

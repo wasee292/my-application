@@ -17,6 +17,7 @@
   <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,7 +187,7 @@
             android:layout_height="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            app:srcCompat="@drawable/ic_star_yellow_24dp" />
+            app:srcCompat="@drawable/ic_git_fork" />
 
           <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_fork"

@@ -27,7 +27,7 @@ class MainActivity :
   private val repoListAdapter by lazy {
     RepoListAdapter(object : RepoListAdapter.ItemClickListener<Repo> {
       override fun onItemClicked(item: Repo) {
-        item.expand = true
+        item.expand = item.expand.not()
       }
     })
   }
