@@ -1,6 +1,8 @@
 package com.example.myapplication.ui.main
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -28,6 +30,12 @@ class MainActivity :
     RepoListAdapter(object : RepoListAdapter.ItemClickListener<Repo> {
       override fun onItemClicked(item: Repo) {
         item.expand = item.expand.not()
+      }
+
+      override fun onItemLongClicked(item: Repo) {
+        startActivity(Intent(Intent.ACTION_VIEW).apply {
+          data = Uri.parse(item.url)
+        })
       }
     })
   }

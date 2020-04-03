@@ -29,6 +29,10 @@ class RepoListAdapter(private val clickListener: ItemClickListener<Repo>) :
         clickListener.onItemClicked(item)
         notifyItemChanged(position)
       }
+      holder.binding.root.setOnLongClickListener {
+        clickListener.onItemLongClicked(item)
+        true
+      }
     }
   }
 
@@ -50,5 +54,6 @@ class RepoListAdapter(private val clickListener: ItemClickListener<Repo>) :
 
   interface ItemClickListener<D> {
     fun onItemClicked(item: D)
+    fun onItemLongClicked(item: D)
   }
 }
